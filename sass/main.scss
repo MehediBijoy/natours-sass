@@ -1,57 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
 
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    //overflow-y: hidden;
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
-$primary-font: 'Lato', sans-serif;
+html {
+    font-size: 62.5%;
+}
+
+$primary-font: "Lato", sans-serif;
+$color-black: #0000;
 
 body {
     color: #777;
     font-family: $primary-font;
     font-weight: 400;
-    font-size: 16px;
+    // font-size: 16px;
     line-height: 1.7;
 }
 
 .header {
     height: 95vh;
-    background-image: linear-gradient(to right bottom, rgba(92, 51, 246, 0.8), rgba(162, 57, 234, 0.8)), url(../img/hero.jpg);
+    background-image: linear-gradient(
+            to right bottom,
+            rgba(92, 51, 246, 0.8),
+            rgba(162, 57, 234, 0.8)
+        ),
+        url(../img/hero.jpg);
     background-size: cover;
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative;
-    .logo-box {
+    &__logo-box {
         position: absolute;
-        top: 40px;
-        left: 40px;
-        .logo {
-            height: 35px;
-        }
+        top: 4rem;
+        left: 4rem;
     }
-    .text-box {
+    &__logo {
+        height: 3.5rem;
+    }
+    &__text-box {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        .heading-primary {
-            color: #fff;
-            text-transform: uppercase;
-            .heading-primary-main {
-                display: block;
-                font-size: 60px;
-                font-weight: 400;
-                letter-spacing: 35px;
-            }
-            .heading-primary-sub {
-                display: block;
-                font-size: 20px;
-                font-weight: 700;
-                letter-spacing: 17.4px;
-            }
+        text-align: center;
+    }
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1s ease-out;
+    }
+}
+
+.btn {
+    &,
+    &:link,
+    &:visited {
+        display: inline-block;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        border-radius: 10rem;
+        font-size: 1.6rem;
+        transition: all 0.2s ease-out;
+        position: relative;
+    }
+
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
         }
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+    }
+
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
+
+    &--white {
+        background-color: #fff;
+        &::after {
+            background-color: #fff;
+        }
+    }
+    
+    &--animated {
+        animation: moveInBottom 0.5s ease-out 0.75s;
+        animation-fill-mode: backwards;
+    }
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    80% {
+        transform: translateX(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    80% {
+        transform: translateX(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
