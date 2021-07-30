@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+
+$primary-font: "Lato", sans-serif;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: $color-gray-dark;
+    font-family: $primary-font;
+    font-weight: 400;
+    // font-size: 16px;
+    line-height: 1.7;
+}
