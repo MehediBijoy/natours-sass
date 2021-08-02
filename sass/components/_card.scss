@@ -81,8 +81,8 @@
         &--3 {
             background-image: linear-gradient(
                     to right bottom,
-                    $color-pink-lighter,
-                    $color-pink-darker
+                    $color-primary,
+                    $color-secondry
                 ),
                 url(../img/nat-7.jpg);
         }
@@ -120,8 +120,8 @@
         &-3 {
             background-image: linear-gradient(
                 to right bottom,
-                rgba($color-pink-lighter, 0.85),
-                rgba($color-pink-darker, 0.85)
+                rgba($color-primary, 0.85),
+                rgba($color-secondry, 0.85)
             );
         }
 

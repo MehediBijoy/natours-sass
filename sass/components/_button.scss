@@ -2,7 +2,6 @@
     &,
     &:link,
     &:visited {
-        color: $color-gray-dark;
         display: inline-block;
         text-transform: uppercase;
         text-decoration: none;
@@ -39,7 +38,6 @@
     }
 
     &:active {
-        color: $color-gray-dark;
         transform: translateY(-0.1rem);
         box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
     }
@@ -51,8 +49,17 @@
 
     &--white {
         background-color: $color-white;
+        color: $color-gray-dark;
         &::after {
             background-color: $color-white;
+        }
+    }
+
+    &--primary {
+        background-color: $color-primary;
+        color: $color-gray-lighter;
+        &::after {
+            background-color: $color-primary;
         }
     }
 }
